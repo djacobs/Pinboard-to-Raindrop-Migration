@@ -1,10 +1,6 @@
 from types import SimpleNamespace
 
-from pinboard_to_raindrop import (
-    guess_collection_from_tags,
-    normalize_tags,
-    pinboard_to_raindrop_payload,
-)
+from pinboard_to_raindrop import normalize_tags, pinboard_to_raindrop_payload
 
 
 def make_args(**overrides):
