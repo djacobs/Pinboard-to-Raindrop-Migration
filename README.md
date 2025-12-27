@@ -58,6 +58,12 @@ python pinboard_to_raindrop.py --fetch-pinboard --merge-tags --sleep 0.25
 python pinboard_to_raindrop.py --pinboard-json pinboard.json --collection-id 123456 --no-skip-existing --merge-tags
 ```
 
+### Smoke test (offline)
+Quick local check of tag → collection logic:
+```bash
+python smoke_test.py
+```
+
 ### Tag→collection mapping (optional)
 Provide a JSON rules file (ordered) to place items into collections based on tags:
 ```json
@@ -79,6 +85,9 @@ python suggest_collections.py --collection-map path/to/map.json
 python suggest_collections.py --collection-map path/to/map.json --apply --sleep 0.25
 ```
 Unmatched items will log a suggested new collection name (based on first tag or domain).
+
+## CI
+GitHub Actions runs ruff lint and the smoke test on push/PR (`.github/workflows/lint.yml`).
 
 ## Notes and assumptions
 - Pinboard “starred” state is not included in `posts/all`; if you use a `starred` tag, it will be preserved and mapped to Raindrop’s `important` flag when present.
